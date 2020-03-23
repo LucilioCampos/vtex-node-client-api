@@ -1,4 +1,5 @@
 
+import Client from './index'
 declare interface IImages {
     ImageUrl: string,
     IMageName: string,
@@ -78,6 +79,7 @@ declare interface ISku {
     ReleaseDate: string
 }
 
+declare function Client<T=Client>(): Function
 declare function getSkus(): Promise<Array<number>>
 declare function getSkusByRefId(refs: Array<any>): Promise<Array<any>>
 declare function getSkuById(id: string): Promise<ISku>
