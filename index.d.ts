@@ -1,12 +1,20 @@
 
 import Client from './index'
-declare interface IImages {
+
+export interface IClient {
+    accountName: string,
+    appKey?: string,
+    appToken?: string,
+    autToken?: string,
+    environment: string
+}
+export interface IImages {
     ImageUrl: string,
     IMageName: string,
     FileId: number
 }
 
-declare interface IDimesion {
+export interface IDimesion {
     cubicweight: number,
     height: number,
     length: number,
@@ -14,7 +22,7 @@ declare interface IDimesion {
     width: number
 }
 
-declare interface IRealDimension {
+export interface IRealDimension {
     realCubicWeight: number,
     realHeight: number,
     realLength: number,
@@ -22,7 +30,7 @@ declare interface IRealDimension {
     realWidth: number
 }
 
-declare interface ISku {
+export interface ISku {
     id: number,
     ProductId: number,
     ProductRefId: number,
@@ -79,7 +87,10 @@ declare interface ISku {
     ReleaseDate: string
 }
 
-declare function Client<T=Client>(): Function
+declare const Client: Client;
+
+export default Client;
+declare function Client(client: IClient): void;
 declare function getSkus(): Promise<Array<number>>
 declare function getSkusByRefId(refs: Array<any>): Promise<Array<any>>
 declare function getSkuById(id: string): Promise<ISku>
