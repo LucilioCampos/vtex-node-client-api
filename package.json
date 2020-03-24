@@ -1,11 +1,12 @@
 {
   "name": "vtex-node-client-api",
-  "version": "1.0.1",
-  "description": "",
+  "version": "0.0.5",
+  "description": "A client api for vtex users",
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc index.js"
   },
   "keywords": [],
   "author": "",
