@@ -1,6 +1,6 @@
 {
   "name": "vtex-node-client-api",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "A client api for vtex users",
   "main": "index.js",
   "typings": "index.d.ts",
