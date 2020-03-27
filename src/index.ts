@@ -1,1 +1,0 @@
-export const Client = (name: string) => "ola";

@@ -1,9 +1,11 @@
 {
   "name": "vtex-node-client-api",
-  "version": "1.0.1",
+  "version": "0.1.6",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,5 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2"
+  },
+  "devDependencies": {
+    "typescript": "^2.7.2"
   }
 }
