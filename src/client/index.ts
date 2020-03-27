@@ -9,6 +9,14 @@ import sku, {
     IFileCreate 
 } from './sku'
 
+import specification, {
+    ICreate,
+    IValue,
+    IGroup,
+    IField,
+    IFieldValue
+} from './specification'
+
 declare interface IClient {
     accountName: string,
     appKey: string,
@@ -29,6 +37,24 @@ interface ClientInstance {
         insertEspecification(skuId: number, details: ICreateSpecification): Promise<IResponseSpecification>
         insertFile<T>(skuId: number, skuFileId: number, details: IFileCreate): Promise<T>
     }
+
+    specifications: {
+        getByCategoryId(categoryId: number): Promise<any>
+        getTreeByCategoryId(categoryId: number): Promise<any>
+        getByFieldId(fieldId: number): Promise<any>
+        getByFieldValue(fieldValueId: number): Promise<any>
+        getByGroup(groupId: number): Promise<any>
+        listGroupByCategory(categoryId: number): Promise<any>
+        create(values: ICreate): Promise<ICreate>
+        insertValue(values: IValue): Promise<IValue>
+        insertGroup(values: IGroup): Promise<IGroup>
+        createField(values: IField): Promise<IField>
+        createFieldValue(values: IFieldValue): Promise<IFieldValue>
+        createGroup(CategoryId: number, Name: string): Promise<IGroup>
+        updatedField(values: IField): Promise<IField>
+        updatedFieldValue(values: IValue): Promise<IValue>
+        updateGroup(Id: number, Name: string): Promise<IGroup>
+    }
 }
 
 export default function Client(client: IClient): ClientInstance {
@@ -40,7 +66,8 @@ export default function Client(client: IClient): ClientInstance {
         return requestByCredential({accountName, appKey, appToken, environment})
     }
     const skus = sku(request)
+    const specifications = specification(request)
 
     
-    return { skus }
+    return { skus, specifications }
 };
